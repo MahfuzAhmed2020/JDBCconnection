@@ -10,7 +10,7 @@ public class Jdbc_Practice {
 
 	public static void main(String[] args) {
 		String[][] a = getJdbcData("jdbc:mysql://localhost:3306/osa", "root", "", "select * from address;");
-		 //jdbcDataInsert("jdbc:mysql://localhost:3306/osa", "root", "","INSERT INTO Address (street,city,zip) values('puranpara','narsingdi', 1600);");
+		// jdbcDataInsert("jdbc:mysql://localhost:3306/osa", "root", "","INSERT INTO Address (street,city,zip) values('bjs','whitestone', 9999);");
 }
 
 	public static String[][] getJdbcData(String dbUrl, String username, String password, String query) {
@@ -33,6 +33,7 @@ public class Jdbc_Practice {
 
 			// Execute the SQL Query. Store results in ResultSet
 			ResultSet rs = stmt.executeQuery(query);
+			
 			value = new String[500][500];
 			// While Loop to iterate through all data and print results
 			int count = 0;
