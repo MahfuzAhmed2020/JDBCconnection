@@ -7,9 +7,8 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JDBC_With_HashMap {
+public class StudentsJDBC {
 	public static void main(String[] args) {
-		
 		HashMap<Integer, Students_Hashmap> map = StudentsJDBC.getAddress();
 		System.out.println("********HashMap<Integer, Students_Hashmap> map = StudentsJDBC.getAddress();*********Map.Entry<Integer, Students_Hashmap> entry : map.entrySet()*********");
 		for (Map.Entry<Integer, Students_Hashmap> entry : map.entrySet()) {
@@ -23,24 +22,10 @@ public class JDBC_With_HashMap {
 			System.out.println("key: " + i + " value: " + map.get(i).getStudent_id() + " " + map.get(i).getLast_name()
 					+ " " + map.get(i).getFirst_name() + " " + map.get(i).getAge()+ " " + map.get(i).getAddress_id());
 		}
-		
-		HashMap<Integer, Address_HashMap> map1 = JDBC_With_HashMap.getAddress();
-		System.out.println("********HashMap<Integer, Address_HashMap> map = JDBC_With_HashMap.getAddress();*********Map.Entry<Integer, Address_HashMap> entry : map.entrySet()*********");
-		for (Map.Entry<Integer, Address_HashMap> entry : map1.entrySet()) {
-			System.out.println(
-					entry.getKey() + " " + entry.getValue().getAddress_id() + " " + entry.getValue().getStreet() + " "
-							+ entry.getValue().getCity() + " " + entry.getValue().getZip());
-		}
-		System.out.println("****************Integer i : map.keySet()***************");
-
-		for (Integer i : map1.keySet()) {
-			System.out.println("key: " + i + " value: " + map1.get(i).getAddress_id() + " " + map1.get(i).getStreet()
-					+ " " + map1.get(i).getCity() + " " + map1.get(i).getZip());
-		}
 
 		System.out.println("*********HashMap<Integer, MockDataAddress> map1 = JDBC_With_HashMap.getMockdata();*********Map.Entry<Integer, MockDataAddress> entry : map1.entrySet()*********");
-		HashMap<Integer, MockDataAddress> map11 = JDBC_With_HashMap.getMockdata();
-		for (Map.Entry<Integer, MockDataAddress> entry : map11.entrySet()) {
+		HashMap<Integer, MockDataAddress> map1 = JDBC_With_HashMap.getMockdata();
+		for (Map.Entry<Integer, MockDataAddress> entry : map1.entrySet()) {
 			System.out.println(entry.getKey() + " " + entry.getValue().getID() + " " + entry.getValue().getJobTitle()
 					+ " " + entry.getValue().getEmailAddress() + " " + entry.getValue().getFirstNameLastName() + " "
 					+ entry.getValue().getSalary());
@@ -59,14 +44,14 @@ public class JDBC_With_HashMap {
 	 * 
 	 * @return
 	 */
-	public static HashMap<Integer, Address_HashMap> getAddress() {
-		HashMap<Integer, Address_HashMap> map = new HashMap<Integer, Address_HashMap>();
+	public static HashMap<Integer, Students_Hashmap> getAddress() {
+		HashMap<Integer, Students_Hashmap> map = new HashMap<Integer, Students_Hashmap>();
 		try {
 			int key = 0;
-			ResultSet rs = JDBC_With_HashMap.getValueFromSQLTable("select *  from Address;");
+			ResultSet rs = JDBC_With_HashMap.getValueFromSQLTable("select * from students;");
 			while (rs.next()) {
-				map.put(key, new Address_HashMap(rs.getString("address_id"), rs.getString("street"),
-						rs.getString("city"), rs.getString("zip")));
+				map.put(key, new Students_Hashmap(rs.getString("student_id"), rs.getString("last_name"),
+						rs.getString("first_name"), rs.getString("age"),rs.getString("address_id")));
 				key++;
 			}
 		} catch (Exception e) {
