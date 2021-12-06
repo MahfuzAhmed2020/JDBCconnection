@@ -10,7 +10,7 @@ import java.util.Map;
 public class JDBC_With_HashMap {
 	public static void main(String[] args) {
 		HashMap<Integer, Address_HashMap> map = JDBC_With_HashMap.getAddress();
-		System.out.println("*********Map.Entry<Integer, Address_HashMap> entry : map.entrySet()*********");
+		System.out.println("********HashMap<Integer, Address_HashMap> map = JDBC_With_HashMap.getAddress();*********Map.Entry<Integer, Address_HashMap> entry : map.entrySet()*********");
 		for (Map.Entry<Integer, Address_HashMap> entry : map.entrySet()) {
 			System.out.println(
 					entry.getKey() + " " + entry.getValue().getAddress_id() + " " + entry.getValue().getStreet() + " "
@@ -23,7 +23,7 @@ public class JDBC_With_HashMap {
 					+ " " + map.get(i).getCity() + " " + map.get(i).getZip());
 		}
 
-		System.out.println("*********Map.Entry<Integer, MockDataAddress> entry : map1.entrySet()*********");
+		System.out.println("*********HashMap<Integer, MockDataAddress> map1 = JDBC_With_HashMap.getMockdata();*********Map.Entry<Integer, MockDataAddress> entry : map1.entrySet()*********");
 		HashMap<Integer, MockDataAddress> map1 = JDBC_With_HashMap.getMockdata();
 		for (Map.Entry<Integer, MockDataAddress> entry : map1.entrySet()) {
 			System.out.println(entry.getKey() + " " + entry.getValue().getID() + " " + entry.getValue().getJobTitle()
