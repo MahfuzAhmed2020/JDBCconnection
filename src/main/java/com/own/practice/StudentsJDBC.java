@@ -36,7 +36,15 @@ public class StudentsJDBC {
 //					+ map1.get(i).getEmailAddress() + "  " + map1.get(i).getFirstNameLastName() + " "
 //					+ map1.get(i).getSalary());
 //		}
-
+		System.out.println("*******************HashMap<Integer, Name_HashMap> mapName = StudentsJDBC.getName();*****************************");
+		HashMap<Integer, Name_HashMap> mapName = StudentsJDBC.getName();
+		
+		for (Map.Entry<Integer, Name_HashMap> entry : mapName.entrySet()) {
+			System.out.println(entry.getKey() + " " + entry.getValue().getRoll_No() + " " + entry.getValue().getLastName()
+					+ " " + entry.getValue().getFirstName() );
+		}
+		
+		
 	}
 
 	/**
@@ -104,6 +112,26 @@ public class StudentsJDBC {
 
 		}
 		return rs;
+	}
+	/**
+	 * This method will retrieve data from the name datatable
+	 * 
+	 * @return
+	 */
+	public static HashMap<Integer, Name_HashMap> getName() {
+		HashMap<Integer, Name_HashMap> map = new HashMap<Integer, Name_HashMap>();
+		try {
+			int key = 0;
+			ResultSet rs = JDBC_With_HashMap.getValueFromSQLTable("select * from name;");
+			while (rs.next()) {
+				map.put(key, new Name_HashMap(rs.getString("Roll_No"), rs.getString("LastName"),
+						rs.getString("FirstName")));
+				key++;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return map;
 	}
 
 }
