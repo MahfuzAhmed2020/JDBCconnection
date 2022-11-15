@@ -19,8 +19,10 @@ public class Jdbc_Connection {
 		String password = "";
 
 		// Query to Execute
-		String query = "select *  from Address;";
-
+		//System.out.println("*****//String query = \"select *  from Address;\";*****");
+		//String query = "select *  from Address;";
+		System.out.println("*****String query = \"select * from students;\";*****");
+		String query = "select * from students;";
 		// Create Connection to DB
 		Connection con = DriverManager.getConnection(dbUrl, username, password);
 
@@ -29,7 +31,7 @@ public class Jdbc_Connection {
 
 		// Execute the SQL Query. Store results in ResultSet
 		ResultSet rs = stmt.executeQuery(query);
-
+		
 		// While Loop to iterate through all data and print results
 		while (rs.next()) {
 			String address_id = rs.getString(1);
@@ -38,8 +40,11 @@ public class Jdbc_Connection {
 			String zip = rs.getString(4);
 			System.out.println(address_id + "  " + street + "  " + city + "   " + zip);
 		}
+		
 		// closing DB Connection
 		con.close();
+		System.out.println("*****getJdbcData(\"jdbc:mysql://localhost:3306/osa\", \"root\", \"\", \"select *  from Address;\");*****");
+		getJdbcData("jdbc:mysql://localhost:3306/osa", "root", "", "select *  from Address;");
 	}
 	
 	
@@ -86,7 +91,7 @@ public class Jdbc_Connection {
 			// closing DB Connection
 			con.close();
 		} catch (Exception e) {
-
+                System.out.println(e.getMessage());
 		}
 
 		return value;

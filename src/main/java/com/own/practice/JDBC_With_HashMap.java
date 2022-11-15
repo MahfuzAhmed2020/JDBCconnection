@@ -100,7 +100,7 @@ public class JDBC_With_HashMap {
 		ResultSet rs = null;
 		try {
 			// Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"
-			String dbUrl = "jdbc:mysql://localhost:3306/osa";
+			String dbUrl = "jdbc:mysql://localhost:3306/osa"; //127.0.0.1
 			// Database Username
 			String username = "root";
 			// Database Password
