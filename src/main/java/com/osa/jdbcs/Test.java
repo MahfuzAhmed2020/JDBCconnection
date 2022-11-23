@@ -9,7 +9,9 @@ public class Test {
 		int y= 20;
 		int sum = x+y;
 
-		System.out.println("Hi this is mahfuz :"+sum);
+System.out.println("Hi this is Ibrahim+Mahfuz :"+sum);
+
+
 		
 		
 		
