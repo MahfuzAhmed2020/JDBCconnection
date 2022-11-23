@@ -8,7 +8,7 @@ public class Test {
 		int x=10;
 		int y= 20;
 		int sum = x+y;
-		System.out.println("Hi this is Ibrahim :"+sum);
+		System.out.println("Hi this is Ibrahim+Mahfuz :"+sum);
 		
 		
 		
